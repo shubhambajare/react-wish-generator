@@ -1,5 +1,6 @@
 #app {
     text-align: center;
+    overflow: hidden;
 }
 
 .ws-web-title {
@@ -8,11 +9,14 @@
 
 .ws-column {
     margin: '15px';
+    min-height: 300px;
 }
 
 .ws-form {
     text-align: left;
     margin: 10px;
+    width: 400px;
+    display: inline-block;
 
     & .ws-input-error {
         font-size: 12px;

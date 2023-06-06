@@ -11,8 +11,7 @@ const App = () => {
 
     const [occasion, setOccasion] = useState();
     const [name, setName] = useState('');
-    const [message, setMessage] = useState('Congratulations on reaching another milestone in your journey of love, ok! May your anniversary be a reminder of the beautiful bond you share and the wonderful years ahead.');
-
+    const [message, setMessage] = useState('');
 
     const handleSubmit = () => {
 
@@ -32,6 +31,9 @@ const App = () => {
                 break;
         }
         setMessage(messageObject.startMessage + name + messageObject.endMessage);
+
+        const section = document.querySelector('#msg-card');
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     return <>
@@ -39,7 +41,7 @@ const App = () => {
         <h2 className="m-4 ws-web-title">Wish Generator</h2>
 
         <Row>
-            <Col xs={12} md={6} lg={6} className="ws-column">
+            <Col xs={12} md={12} lg={12} className="ws-column">
                 <div className="ws-form">
                     <Form.Label>
                         Occasion: &nbsp;
@@ -73,14 +75,16 @@ const App = () => {
                     </Form.Group>
 
                 </div>
-                <Button variant="primary" onClick={handleSubmit}>
-                    <span className="pl-5 pr-1" >
-                        Generate Message
-                    </span>
-                </Button>
+                <div>
+                    <Button variant="primary" onClick={handleSubmit}>
+                        <span className="pl-5 pr-1" >
+                            {message.length ? 'Change Message' : 'Generate Message'}
+                        </span>
+                    </Button>
+                </div>
 
             </Col>
-            <Col xs={12} md={6} lg={6} className="ws-column">
+            <Col xs={12} md={12} lg={12} className="ws-column" id='msg-card'>
                 {message && message.length ? <MessageCard message={message} /> : ''}
             </Col>
         </Row>
