@@ -5,11 +5,18 @@
 
 .ws-web-title {
     color: palevioletred;
+    margin-top: 15%;
+    margin-bottom: 5%;
+}
+
+@media screen and (max-width: 720px) {
+    .ws-web-title {
+        margin-top: 35%;
+    }
 }
 
 .ws-column {
     margin: '15px';
-    min-height: 300px;
 }
 
 .ws-form {
@@ -36,11 +43,16 @@
     height: 15px;
 }
 
-.ws-message-card {
-    background-color: rgb(117, 255, 192) !important;
-    max-width: 400px;
-    font-size: 18px;
-    font-weight: 700;
+.ws-message-card-wrapper {
+    margin-bottom: 20%;
+
+    & .ws-message-card {
+        background-color: rgb(117, 255, 192) !important;
+        max-width: 400px;
+        font-size: 18px;
+        font-weight: 700;
+
+    }
 }
 
 .ws-display-inline-block {
