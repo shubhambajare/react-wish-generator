@@ -1,0 +1,44 @@
+#app {
+    text-align: center;
+}
+
+.ws-web-title {
+    color: palevioletred;
+}
+
+.ws-column {
+    margin: '15px';
+}
+
+.ws-form {
+    text-align: left;
+    margin: 10px;
+
+    & .ws-input-error {
+        font-size: 12px;
+        color: orangered;
+    }
+}
+
+.text-color-red {
+    color: red;
+}
+
+.form-label {
+    color: gray;
+}
+
+.ws-height-15 {
+    height: 15px;
+}
+
+.ws-message-card {
+    background-color: rgb(117, 255, 192) !important;
+    max-width: 400px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.ws-display-inline-block {
+    display: inline-block;
+}
