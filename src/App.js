@@ -11,7 +11,7 @@ const App = () => {
 
     const [isMessageGenerated, setIsMessageGenerated] = useState(false);
     const [occasion, setOccasion] = useState();
-    const [name, setName] = useState();
+    const [name, setName] = useState('');
     const [message, setMessage] = useState('');
 
     const handleSubmit = () => {
