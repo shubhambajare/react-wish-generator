@@ -1,5 +1,10 @@
 const data = [
     {
+        id: 0,
+        startMessage: "Happy anniversary, ",
+        endMessage: "! May the love you share continue to grow stronger with each passing year. Here's to a lifetime of happiness and cherished moments.",
+    },
+    {
         id: 1,
         startMessage: "Happy anniversary, ",
         endMessage: "! Wishing you both a day filled with love, laughter, and beautiful memories as you celebrate another year of togetherness.",
@@ -19,13 +24,8 @@ const data = [
         startMessage: "Wishing a very happy anniversary to the most incredible couple I know, ",
         endMessage: "! Your love inspires us all, and I hope your day is as special as your love story.",
     },
-    {
-        id: 5,
-        startMessage: "Happy anniversary, ",
-        endMessage: "! May the love you share continue to grow stronger with each passing year. Here's to a lifetime of happiness and cherished moments.",
-    }
+
 ];
 
-const getWeddingAnniversaryMessage = () => data[Math.floor(Math.random() * data.length)];
-
+const getWeddingAnniversaryMessage = (id = -1) => data[id === -1 ? Math.floor(Math.random() * data.length) : id];
 export default getWeddingAnniversaryMessage;

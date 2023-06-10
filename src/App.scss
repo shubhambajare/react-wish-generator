@@ -5,8 +5,7 @@
 
 .ws-web-title {
     color: palevioletred;
-    margin-top: 15%;
-    margin-bottom: 5%;
+    margin-top: 10%;
 }
 
 @media screen and (max-width: 720px) {
@@ -44,12 +43,13 @@
 }
 
 .ws-message-card-wrapper {
-    margin-bottom: 20%;
+    margin-bottom: 1%;
+    text-align: -webkit-center;
 
     & .ws-message-card {
         background-color: rgb(117, 255, 192) !important;
         max-width: 400px;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 700;
 
     }

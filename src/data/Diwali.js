@@ -1,5 +1,10 @@
 const data = [
     {
+        id: 0,
+        startMessage: "Wishing you and your family a Diwali filled with love, laughter, and moments of pure bliss, ",
+        endMessage: ". May your lives be adorned with happiness and prosperity.",
+    },
+    {
         id: 1,
         startMessage: "Wishing you a sparkling Diwali, ",
         endMessage: "! May this festival of lights bring joy, prosperity, and a renewed sense of hope to your life.",
@@ -19,13 +24,9 @@ const data = [
         startMessage: "",
         endMessage: ", may this Diwali bring new beginnings, abundant blessings, and success in all your endeavors. Have a joyous and prosperous festival!",
     },
-    {
-        id: 5,
-        startMessage: "Wishing you and your family a Diwali filled with love, laughter, and moments of pure bliss, ",
-        endMessage: ". May your lives be adorned with happiness and prosperity.",
-    }
+
 ];
 
-const getDiwaliMessage = () => data[Math.floor(Math.random() * data.length)];
+const getDiwaliMessage = (id = -1) => data[id === -1 ? Math.floor(Math.random() * data.length) : id];
 
 export default getDiwaliMessage;

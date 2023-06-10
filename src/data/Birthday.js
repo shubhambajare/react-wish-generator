@@ -1,5 +1,10 @@
 const data = [
     {
+        id: 0,
+        startMessage: "Sending heartfelt birthday wishes to an amazing person, ",
+        endMessage: "! May this year be your best one yet, filled with love, success, and endless blessings.",
+    },
+    {
         id: 1,
         startMessage: "Happy birthday, ",
         endMessage: "! May this special day bring you joy, laughter, and countless precious moments to cherish throughout the year.",
@@ -44,13 +49,9 @@ const data = [
         startMessage: "Happy birthday, ",
         endMessage: "! May this day bring you an abundance of love, laughter, and all the things that make your heart sing.",
     },
-    {
-        id: 10,
-        startMessage: "Sending heartfelt birthday wishes to an amazing person, ",
-        endMessage: "! May this year be your best one yet, filled with love, success, and endless blessings.",
-    }
+
 ];
 
-const getBirthdayMessage = () => data[Math.floor(Math.random() * data.length)];
+const getBirthdayMessage = (id = -1) => data[id === -1 ? Math.floor(Math.random() * data.length) : id];
 
 export default getBirthdayMessage;

@@ -13,13 +13,11 @@ const App = () => {
     const [occasion, setOccasion] = useState();
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
-
+    const [messageId, setMessageId] = useState();
     const handleSubmit = () => {
-
+        let messageObject;
         if (!occasion || !name.length)
             return
-
-        let messageObject;
         switch (occasion) {
             case "1":
                 messageObject = getBirthdayMessage();
@@ -32,13 +30,18 @@ const App = () => {
                 break;
         }
         setMessage(messageObject.startMessage + name + messageObject.endMessage);
-        setIsMessageGenerated(true)
+        setMessageId(messageObject.id);
+        setIsMessageGenerated(true);
     }
 
+    const copyLink = () => {
+        navigator.clipboard.writeText(document.URL + 'share/' + occasion + '/' + messageId + '/' + name);
+        alert("Wish link is copied to your clipboard!!");
+    }
+
+
     return <>
-
         <h2 className="ws-web-title">Wish Generator</h2>
-
         <Row>
             {isMessageGenerated ?
                 <Col xs={12} md={12} lg={12} className="ws-column">
@@ -46,7 +49,8 @@ const App = () => {
                         <MessageCard
                             message={message}
                             changeMessage={handleSubmit}
-                            generateNewMessage={setIsMessageGenerated} />
+                            generateNewMessage={setIsMessageGenerated}
+                            copyLink={copyLink} />
                         : ''}
                 </Col>
                 : <Col xs={12} md={12} lg={12} className="ws-column">
@@ -81,7 +85,6 @@ const App = () => {
                                 {!name.trim().length && <span className="ws-input-error">Please enter Receiver name</span>}
                             </div>
                         </Form.Group>
-
                     </div>
                     <div>
                         <Button variant="outline-primary" onClick={handleSubmit}>
@@ -90,9 +93,7 @@ const App = () => {
                             </span>
                         </Button>
                     </div>
-
                 </Col>
-
             }
         </Row>
     </>;
