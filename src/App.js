@@ -13,7 +13,8 @@ const App = () => {
     const [occasion, setOccasion] = useState();
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
-    const [messageId, setMessageId] = useState();
+    const [shareLink, setShareLink] = useState();
+
     const handleSubmit = () => {
         let messageObject;
         if (!occasion || !name.length)
@@ -30,15 +31,9 @@ const App = () => {
                 break;
         }
         setMessage(messageObject.startMessage + name + messageObject.endMessage);
-        setMessageId(messageObject.id);
         setIsMessageGenerated(true);
+        setShareLink(document.URL + 'share/' + occasion + '/' + messageObject.id + '/' + name)
     }
-
-    const copyLink = () => {
-        navigator.clipboard.writeText(document.URL + 'share/' + occasion + '/' + messageId + '/' + name);
-        alert("Wish link is copied to your clipboard!!");
-    }
-
 
     return <>
         <h2 className="ws-web-title">Wish Generator</h2>
@@ -50,7 +45,7 @@ const App = () => {
                             message={message}
                             changeMessage={handleSubmit}
                             generateNewMessage={setIsMessageGenerated}
-                            copyLink={copyLink} />
+                            shareLink={shareLink} />
                         : ''}
                 </Col>
                 : <Col xs={12} md={12} lg={12} className="ws-column">

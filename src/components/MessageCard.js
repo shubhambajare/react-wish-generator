@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 const MessageCard = (props) => {
+    const [copyBtnText, setCopyBtnText] = useState('Copy Message Link');
     return (
         <div className='m-4 ws-display-inline-block ws-message-card-wrapper'>
 
@@ -13,11 +15,13 @@ const MessageCard = (props) => {
                         Change Message
                     </span>
                 </Button>
-                <Button variant="outline-success" style={{ marginRight: '10px', marginBottom: '15px' }} onClick={() => props.copyLink()}>
-                    <span  >
-                        Copy Message Link
-                    </span>
-                </Button>
+
+                <CopyToClipboard text={props.shareLink} onCopy={() => { setCopyBtnText('Copied') }}>
+                    <Button variant="outline-success" style={{ marginRight: '10px', marginBottom: '15px' }} >
+                        {copyBtnText}
+                    </Button>
+                </CopyToClipboard>
+
                 <div>
                     <Button variant="outline-warning" style={{ marginRight: '10px', marginBottom: '15px' }} onClick={() => props.generateNewMessage(false)}>
                         <span  >
